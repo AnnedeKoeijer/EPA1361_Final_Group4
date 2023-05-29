@@ -5,6 +5,7 @@ from ema_workbench.em_framework.samplers import sample_uncertainties
 from ema_workbench.util import ema_logging
 import time
 from problem_formulation import get_model_for_problem_formulation
+from ema_workbench import save_results
 
 
 if __name__ == "__main__":
@@ -59,12 +60,15 @@ if __name__ == "__main__":
     #    results = dike_model.outcomes_output
 
     # series run
-    experiments, outcomes = perform_experiments(dike_model, ref_scenario, 1)
+    results = perform_experiments(dike_model, ref_scenario, 1)
 
 # multiprocessing
     #with MultiprocessingEvaluator(dike_model) as evaluator:
      #   results = evaluator.perform_experiments(scenarios=10, policies=policy0,
       #                                          uncertainty_sampling='sobol')
 
+    experiments, outcomes = results
     print(experiments)
     print(outcomes)
+
+    save_results(results, "./data/results/run_1.tar.gz")
