@@ -1,17 +1,20 @@
 from ema_workbench import Model, MultiprocessingEvaluator, Policy, Scenario
-
+import pandas as pd
+import numpy as np
 from ema_workbench.em_framework.evaluators import perform_experiments
 from ema_workbench.em_framework.samplers import sample_uncertainties
 from ema_workbench.util import ema_logging
 import time
 from problem_formulation import get_model_for_problem_formulation
 from ema_workbench import save_results
-
+desired_width = 320
+pd.set_option('display.width', desired_width)
+pd.set_option('display.max_columns',50)
 
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
-    dike_model, planning_steps = get_model_for_problem_formulation(5)
+    dike_model, planning_steps = get_model_for_problem_formulation(4)
 
     # Build a user-defined scenario and policy:
     reference_values = {
@@ -53,14 +56,14 @@ if __name__ == "__main__":
     #    n_policies = 10
 
     # single run
-    #    start = time.time()
-    #    dike_model.run_model(ref_scenario, policy0)
-    #    end = time.time()
-    #    print(end - start)
-    #    results = dike_model.outcomes_output
+    # start = time.time()
+    # dike_model.run_model(ref_scenario, policy0)
+    # end = time.time()
+    # print(end - start)
+    results = dike_model.outcomes_output
 
     # series run
-    results = perform_experiments(dike_model, ref_scenario, 1)
+    results = perform_experiments(dike_model, 50 ,policies = policy0)
 
 # multiprocessing
     #with MultiprocessingEvaluator(dike_model) as evaluator:
@@ -70,6 +73,13 @@ if __name__ == "__main__":
     experiments, outcomes = results
     print(experiments)
     print(outcomes)
-    experiments.to_excel('results/outcomes.xlsx')
+    experiments.to_excel('results/experiments.xlsx')
+
+    # df_outcomes = pd.DataFrame({key: np.concatenate(value) for key, value in outcomes.items()})
+    outcomes = {f'{key} {i + 1}': value[:, i] for key, value in outcomes.items() for i in range(value.shape[1])}
+    df_outcomes = pd.DataFrame(outcomes)
+
+    print(df_outcomes)
+    df_outcomes.to_excel('results/outcomes.xlsx')
 
     save_results(results, "results/run_1.tar.gz")
