@@ -70,5 +70,6 @@ if __name__ == "__main__":
     experiments, outcomes = results
     print(experiments)
     print(outcomes)
+    experiments.to_excel('results/outcomes.xlsx')
 
-    save_results(results, "./data/results/run_1.tar.gz")
+    save_results(results, "results/run_1.tar.gz")
