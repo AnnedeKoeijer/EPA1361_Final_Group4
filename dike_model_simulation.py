@@ -60,7 +60,7 @@ if __name__ == "__main__":
     #    results = dike_model.outcomes_output
 
     # series run
-    results = perform_experiments(dike_model, ref_scenario, 1)
+    results = perform_experiments(dike_model, 1000, policy0)
 
 # multiprocessing
     #with MultiprocessingEvaluator(dike_model) as evaluator:
@@ -70,6 +70,6 @@ if __name__ == "__main__":
     experiments, outcomes = results
     print(experiments)
     print(outcomes)
-    experiments.to_excel('results/outcomes.xlsx')
+    experiments.to_excel('results/experiments.xlsx')
 
-    save_results(results, "results/run_1.tar.gz")
+    save_results(results, "results/run_base.tar.gz")
