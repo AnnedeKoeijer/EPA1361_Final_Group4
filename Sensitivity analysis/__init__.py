@@ -2,12 +2,12 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 46,
+   "execution_count": 9,
    "metadata": {
     "collapsed": true,
     "ExecuteTime": {
-     "end_time": "2023-06-05T12:14:38.010955300Z",
-     "start_time": "2023-06-05T12:14:38.008678300Z"
+     "end_time": "2023-06-06T13:44:27.461000400Z",
+     "start_time": "2023-06-06T13:44:27.448388800Z"
     }
    },
    "outputs": [],
@@ -20,7 +20,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 54,
+   "execution_count": 10,
    "outputs": [],
    "source": [
     "experiments, outcomes = load_results('./results/run_base.tar.gz')"
@@ -28,14 +28,14 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-06-05T12:22:59.394891100Z",
-     "start_time": "2023-06-05T12:22:59.343665300Z"
+     "end_time": "2023-06-06T13:44:28.285574900Z",
+     "start_time": "2023-06-06T13:44:28.253781300Z"
     }
    }
   },
   {
    "cell_type": "code",
-   "execution_count": 69,
+   "execution_count": 12,
    "outputs": [],
    "source": [
     "# df_outcomes = pd.DataFrame({key: np.concatenate(value) for key, value in outcomes.items()})\n",
@@ -58,22 +58,31 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-06-05T12:30:56.211523700Z",
-     "start_time": "2023-06-05T12:30:54.677369200Z"
+     "end_time": "2023-06-06T13:44:41.636140600Z",
+     "start_time": "2023-06-06T13:44:41.163957100Z"
     }
    }
   },
   {
    "cell_type": "code",
-   "execution_count": 49,
+   "execution_count": 16,
    "outputs": [
     {
-     "data": {
-      "text/plain": "Index(['A.0_ID flood wave shape', 'A.1_Bmax', 'A.1_Brate', 'A.1_pfail',\n       'A.2_Bmax', 'A.2_Brate', 'A.2_pfail', 'A.3_Bmax', 'A.3_Brate',\n       'A.3_pfail', 'A.4_Bmax', 'A.4_Brate', 'A.4_pfail', 'A.5_Bmax',\n       'A.5_Brate', 'A.5_pfail', 'discount rate 0', 'discount rate 1',\n       'discount rate 2', '0_RfR 0', '0_RfR 1', '0_RfR 2', '1_RfR 0',\n       '1_RfR 1', '1_RfR 2', '2_RfR 0', '2_RfR 1', '2_RfR 2', '3_RfR 0',\n       '3_RfR 1', '3_RfR 2', '4_RfR 0', '4_RfR 1', '4_RfR 2',\n       'EWS_DaysToThreat', 'A.1_DikeIncrease 0', 'A.1_DikeIncrease 1',\n       'A.1_DikeIncrease 2', 'A.2_DikeIncrease 0', 'A.2_DikeIncrease 1',\n       'A.2_DikeIncrease 2', 'A.3_DikeIncrease 0', 'A.3_DikeIncrease 1',\n       'A.3_DikeIncrease 2', 'A.4_DikeIncrease 0', 'A.4_DikeIncrease 1',\n       'A.4_DikeIncrease 2', 'A.5_DikeIncrease 0', 'A.5_DikeIncrease 1',\n       'A.5_DikeIncrease 2', 'scenario', 'policy', 'model'],\n      dtype='object')"
-     },
-     "execution_count": 49,
-     "metadata": {},
-     "output_type": "execute_result"
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Index(['Expected Annual Damage 1', 'Expected Annual Damage 2',\n",
+      "       'Expected Annual Damage 3', 'Expected Annual Damage 4',\n",
+      "       'Dike Investment Costs 1', 'Dike Investment Costs 2',\n",
+      "       'Dike Investment Costs 3', 'Dike Investment Costs 4',\n",
+      "       'Expected Number of Deaths 1', 'Expected Number of Deaths 2',\n",
+      "       'Expected Number of Deaths 3', 'Expected Number of Deaths 4',\n",
+      "       'RfR Total Costs 1', 'RfR Total Costs 2', 'RfR Total Costs 3',\n",
+      "       'RfR Total Costs 4', 'Expected Evacuation Costs 1',\n",
+      "       'Expected Evacuation Costs 2', 'Expected Evacuation Costs 3',\n",
+      "       'Expected Evacuation Costs 4'],\n",
+      "      dtype='object')\n"
+     ]
     }
    ],
    "source": [
@@ -82,8 +91,8 @@
    "metadata": {
     "collapsed": false,
     "ExecuteTime": {
-     "end_time": "2023-06-05T12:14:39.025368Z",
-     "start_time": "2023-06-05T12:14:39.022403800Z"
+     "end_time": "2023-06-06T13:46:22.705775100Z",
+     "start_time": "2023-06-06T13:46:22.696822500Z"
     }
    }
   },

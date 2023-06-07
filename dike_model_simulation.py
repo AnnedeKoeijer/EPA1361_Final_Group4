@@ -10,11 +10,12 @@ from ema_workbench import save_results
 desired_width = 320
 pd.set_option('display.width', desired_width)
 pd.set_option('display.max_columns',50)
+problem_formulation = 5
 
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
-    dike_model, planning_steps = get_model_for_problem_formulation(4)
+    dike_model, planning_steps = get_model_for_problem_formulation(problem_formulation)
 
     # Build a user-defined scenario and policy:
     reference_values = {
@@ -63,7 +64,7 @@ if __name__ == "__main__":
     results = dike_model.outcomes_output
 
     # series run
-    results = perform_experiments(dike_model, 50 ,policies = policy0)
+    results = perform_experiments(dike_model, 10 ,policies = policy0)
 
 # multiprocessing
     #with MultiprocessingEvaluator(dike_model) as evaluator:
@@ -76,7 +77,10 @@ if __name__ == "__main__":
     experiments.to_excel('results/experiments.xlsx')
 
     # df_outcomes = pd.DataFrame({key: np.concatenate(value) for key, value in outcomes.items()})
-    outcomes = {f'{key} {i + 1}': value[:, i] for key, value in outcomes.items() for i in range(value.shape[1])}
+
+    if problem_formulation == 4 or problem_formulation == 5:
+        outcomes = {f'{key} {i + 1}': value[:, i] for key, value in outcomes.items() for i in range(value.shape[1])}
+
     df_outcomes = pd.DataFrame(outcomes)
 
     print(df_outcomes)

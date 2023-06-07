@@ -5,5 +5,5 @@ import seaborn as sns
 from ema_workbench import ema_logging, load_results
 from ema_workbench.analysis import feature_scoring
 
-fn = "./data/results/run_1.tar.gz"
+fn = "./results/run_base.tar.gz"
 experiments, outcomes = load_results(fn)
