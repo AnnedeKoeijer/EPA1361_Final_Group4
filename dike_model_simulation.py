@@ -7,6 +7,8 @@ from ema_workbench.util import ema_logging
 import time
 from problem_formulation import get_model_for_problem_formulation
 from ema_workbench import save_results
+from ema_workbench import Samplers
+from SALib.analyze import sobol
 desired_width = 320
 pd.set_option('display.width', desired_width)
 pd.set_option('display.max_columns',50)
@@ -61,29 +63,39 @@ if __name__ == "__main__":
     # dike_model.run_model(ref_scenario, policy0)
     # end = time.time()
     # print(end - start)
-    results = dike_model.outcomes_output
+    #results = dike_model.outcomes_output
 
     # series run
-    results = perform_experiments(dike_model, 10 ,policies = policy0)
+    results_base = perform_experiments(dike_model, 1000 ,policies = policy0)
 
 # multiprocessing
-    #with MultiprocessingEvaluator(dike_model) as evaluator:
-     #   results = evaluator.perform_experiments(scenarios=10, policies=policy0,
-      #                                          uncertainty_sampling='sobol')
+    with MultiprocessingEvaluator(dike_model) as evaluator:
+       results_sobol_base = evaluator.perform_experiments(scenarios=500, policies=policy0,
+                                               uncertainty_sampling=Samplers.SOBOL)
+    save_results(results_base, "results/run_base.tar.gz")
+    save_results(results_sobol_base, "results/run_sobol_base.tar.gz")
 
-    experiments, outcomes = results
-    print(experiments)
-    print(outcomes)
-    experiments.to_excel('results/experiments.xlsx')
+    results_policies = perform_experiments(dike_model, 1000, policies=10)
 
-    # df_outcomes = pd.DataFrame({key: np.concatenate(value) for key, value in outcomes.items()})
+    with MultiprocessingEvaluator(dike_model) as evaluator:
+        results_sobol_policies = evaluator.perform_experiments(scenarios=500, policies=10,
+                                                           uncertainty_sampling=Samplers.SOBOL)
+    save_results(results_policies, "results/run_policies.tar.gz")
+    save_results(results_sobol_policies, "results/run_sobol_policies.tar.gz")
 
-    if problem_formulation == 4 or problem_formulation == 5:
-        outcomes = {f'{key} {i + 1}': value[:, i] for key, value in outcomes.items() for i in range(value.shape[1])}
+    # experiments, outcomes = results
+    # print(experiments)
+    # print(outcomes)
+    # experiments.to_excel('results/experiments.xlsx')
+    #
+    # # df_outcomes = pd.DataFrame({key: np.concatenate(value) for key, value in outcomes.items()})
+    #
+    # if problem_formulation == 4 or problem_formulation == 5:
+    #     outcomes = {f'{key} {i + 1}': value[:, i] for key, value in outcomes.items() for i in range(value.shape[1])}
+    #
+    # df_outcomes = pd.DataFrame(outcomes)
+    #
+    # print(df_outcomes)
+    # df_outcomes.to_excel('results/outcomes.xlsx')
 
-    df_outcomes = pd.DataFrame(outcomes)
 
-    print(df_outcomes)
-    df_outcomes.to_excel('results/outcomes.xlsx')
-
-    save_results(results, "results/run_1.tar.gz")
