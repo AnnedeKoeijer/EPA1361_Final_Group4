@@ -4,7 +4,7 @@ Dep. Variable:     Expected_evacuation_costs   R-squared:                       
 Model:                                   OLS   Adj. R-squared:                  0.163
 Method:                        Least Squares   F-statistic:                     68.06
 Date:                       Mon, 12 Jun 2023   Prob (F-statistic):               0.00
-Time:                               11:49:49   Log-Likelihood:                -96560.
+Time:                               13:55:22   Log-Likelihood:                -96560.
 No. Observations:                      10000   AIC:                         1.932e+05
 Df Residuals:                           9970   BIC:                         1.934e+05
 Df Model:                                 29                                         

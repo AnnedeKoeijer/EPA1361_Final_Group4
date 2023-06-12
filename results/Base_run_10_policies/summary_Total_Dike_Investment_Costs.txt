@@ -4,7 +4,7 @@ Dep. Variable:     Total_Dike_Investment_Costs   R-squared:                     
 Model:                                     OLS   Adj. R-squared:                  1.000
 Method:                          Least Squares   F-statistic:                 7.741e+28
 Date:                         Mon, 12 Jun 2023   Prob (F-statistic):               0.00
-Time:                                 11:49:49   Log-Likelihood:             1.0322e+05
+Time:                                 13:55:22   Log-Likelihood:             1.0322e+05
 No. Observations:                        10000   AIC:                        -2.064e+05
 Df Residuals:                             9970   BIC:                        -2.062e+05
 Df Model:                                   29                                         

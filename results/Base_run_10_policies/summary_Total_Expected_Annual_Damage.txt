@@ -4,7 +4,7 @@ Dep. Variable:     Total_Expected_Annual_Damage   R-squared:                    
 Model:                                      OLS   Adj. R-squared:                  0.112
 Method:                           Least Squares   F-statistic:                     44.31
 Date:                          Mon, 12 Jun 2023   Prob (F-statistic):          2.47e-236
-Time:                                  11:49:49   Log-Likelihood:            -2.4268e+05
+Time:                                  13:55:22   Log-Likelihood:            -2.4268e+05
 No. Observations:                         10000   AIC:                         4.854e+05
 Df Residuals:                              9970   BIC:                         4.856e+05
 Df Model:                                    29                                         
