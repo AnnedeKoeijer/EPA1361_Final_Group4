@@ -3,8 +3,8 @@
 Dep. Variable:     Total_Expected_Number_of_Deaths   R-squared:                       0.622
 Model:                                         OLS   Adj. R-squared:                  0.614
 Method:                              Least Squares   F-statistic:                     80.48
-Date:                             Thu, 08 Jun 2023   Prob (F-statistic):          1.34e-190
-Time:                                     12:19:31   Log-Likelihood:                -5388.9
+Date:                             Mon, 12 Jun 2023   Prob (F-statistic):          1.34e-190
+Time:                                     12:38:10   Log-Likelihood:                -5388.9
 No. Observations:                             1000   AIC:                         1.082e+04
 Df Residuals:                                  979   BIC:                         1.092e+04
 Df Model:                                       20                                         
