@@ -83,19 +83,4 @@ if __name__ == "__main__":
     save_results(results_policies, "results/run_policies.tar.gz")
     save_results(results_sobol_policies, "results/run_sobol_policies.tar.gz")
 
-    # experiments, outcomes = results
-    # print(experiments)
-    # print(outcomes)
-    # experiments.to_excel('results/experiments.xlsx')
-    #
-    # # df_outcomes = pd.DataFrame({key: np.concatenate(value) for key, value in outcomes.items()})
-    #
-    # if problem_formulation == 4 or problem_formulation == 5:
-    #     outcomes = {f'{key} {i + 1}': value[:, i] for key, value in outcomes.items() for i in range(value.shape[1])}
-    #
-    # df_outcomes = pd.DataFrame(outcomes)
-    #
-    # print(df_outcomes)
-    # df_outcomes.to_excel('results/outcomes.xlsx')
-
 
