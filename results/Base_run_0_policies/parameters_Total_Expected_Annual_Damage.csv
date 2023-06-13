@@ -1,0 +1,63 @@
+Variable,Parameter
+const,348851185388.74854
+A.0_ID flood wave shape,-45797310.408702634
+A.1_Bmax,-31935064.374864474
+A.1_Brate,263010232.79659945
+A.1_pfail,-197238243013.89047
+A.2_Bmax,21966478.59178514
+A.2_Brate,-327231472.0201071
+A.2_pfail,-20147263561.355614
+A.3_Bmax,-10741271.4147139
+A.3_Brate,24565403.900326133
+A.3_pfail,-99354517346.08917
+A.4_Bmax,-7664493.006676704
+A.4_Brate,-221796565.90550414
+A.4_pfail,-7727470051.773145
+A.5_Bmax,40888815.77495645
+A.5_Brate,-102369912.36821258
+A.5_pfail,-10879264328.170986
+discount rate 0,-5678010257.687904
+discount rate 1,-5827861091.568956
+discount rate 2,-5206399962.955819
+discount rate 3,-6782497854.258852
+0_RfR 0,0.0
+0_RfR 1,0.0
+0_RfR 2,0.0
+0_RfR 3,0.0
+1_RfR 0,0.0
+1_RfR 1,0.0
+1_RfR 2,0.0
+1_RfR 3,0.0
+2_RfR 0,0.0
+2_RfR 1,0.0
+2_RfR 2,0.0
+2_RfR 3,0.0
+3_RfR 0,0.0
+3_RfR 1,0.0
+3_RfR 2,0.0
+3_RfR 3,0.0
+4_RfR 0,0.0
+4_RfR 1,0.0
+4_RfR 2,0.0
+4_RfR 3,0.0
+EWS_DaysToThreat,0.0
+A.1_DikeIncrease 0,0.0
+A.1_DikeIncrease 1,0.0
+A.1_DikeIncrease 2,0.0
+A.1_DikeIncrease 3,0.0
+A.2_DikeIncrease 0,0.0
+A.2_DikeIncrease 1,0.0
+A.2_DikeIncrease 2,0.0
+A.2_DikeIncrease 3,0.0
+A.3_DikeIncrease 0,0.0
+A.3_DikeIncrease 1,0.0
+A.3_DikeIncrease 2,0.0
+A.3_DikeIncrease 3,0.0
+A.4_DikeIncrease 0,0.0
+A.4_DikeIncrease 1,0.0
+A.4_DikeIncrease 2,0.0
+A.4_DikeIncrease 3,0.0
+A.5_DikeIncrease 0,0.0
+A.5_DikeIncrease 1,0.0
+A.5_DikeIncrease 2,0.0
+A.5_DikeIncrease 3,0.0
