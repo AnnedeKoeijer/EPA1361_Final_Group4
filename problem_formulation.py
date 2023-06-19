@@ -78,7 +78,7 @@ def get_model_for_problem_formulation(problem_formulation_id):
     rfr_lev = [f"{project_id}_RfR" for project_id in range(0, 5)]
 
     # Time of warning: 0, 1, 2, 3, 4 days ahead from the flood
-    EWS_lev = {"EWS_DaysToThreat": [0, 4]}  # days
+    EWS_lev = {"EWS_DaysToThreat": [0, 4]}  # days, uncertaintanty removed because policy is not used anymore
 
     uncertainties = []
     levers = []

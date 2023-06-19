@@ -1,4 +1,4 @@
-# Sensitivity Analysis and Regression Analysis
+# Sensitivity Analysis Analysis
 
 
 ## Table of Contents
@@ -41,8 +41,7 @@ The code consist out of several functions which are all called upon by one funct
 run_sensitivity_analysis(sobol, regular, name)
 This requires you to enter the directory path of the sobol run, the directory path of th regular run and the name under 
 which you would like the run to be saved. After running the analysis this folder can be found inside the 'results' 
-folder. It will produce csv and text files of the regression and image files of the graphs produced by the convergence, 
-sobol and tree analysis. 
+folder. It will produce image files of the graphs produced by the convergence, sobol and tree analysis. 
 
 ## Examples
 An example of the lines to actually run the code is provided by the following: 

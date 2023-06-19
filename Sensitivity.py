@@ -69,33 +69,6 @@ def setup_dataframe_outcomes (outcomes):
 
     return df_outcomes
 
-
-def run_regression (kpi, df_outcomes, df_experiments, name):
-    """
-        Perform regression analysis on the outcomes using the provided experiments on the given KPI. Than both the
-        results and the corresponding summary are saved in their fitting formats (csv and text).
-
-        Parameters:Parameters:
-        - df_outcomes (pandas DataFrame): DataFrame containing the outcomes of the model.
-        - kpi (str): Key performance indicator to analyze.
-        - df_experiments (pandas DataFrame): DataFrame containing the uncertainties and policies of the model
-        - name (str): The run name for the file in which to save the results
-
-        Returns:
-        - None
-    """
-    # Perform ordinary least squares (OLS) regression analysis
-    final_lhs = df_outcomes[kpi]
-    X_0 = sm.add_constant(df_experiments)
-    est = sm.OLS(final_lhs, X_0.astype(float)).fit()
-    # Extract and save regression parameters to a CSV file
-    parameters_df = pd.DataFrame(est.params, columns=['Parameter'])
-    parameters_df.index.name = 'Variable'
-    parameters_df.to_csv(f'./results/{name}/parameters_{kpi}.csv')
-    # Save regression summary to a text file
-    with open(f'./results/{name}/summary_{kpi}.txt', 'w') as f:
-        f.write(est.summary().as_text())
-
 def run_sobol(df_outcomes_sobol, kpi, problem, name):
     """
     Perform Sobol' sensitivity analysis. This function calculates the Sobol' sensitivity indices
@@ -321,12 +294,6 @@ def run_sensitivity_analysis(sobol, regular, name):
     df_experiments = experiments.drop(['policy', 'model', 'scenario'], axis = 1)
     df_experiments_sobol = experiments_sobol.drop(['policy', 'model', 'scenario'], axis = 1)
 
-    # Run regression analysis for each KPI
-    run_regression ('Total_Expected_Number_of_Deaths', df_outcomes, df_experiments, name)
-    run_regression ('Total_Dike_Investment_Costs', df_outcomes, df_experiments, name)
-    run_regression ('Total_Expected_Annual_Damage', df_outcomes, df_experiments, name)
-    run_regression ('Expected_evacuation_costs', df_outcomes, df_experiments, name)
-    run_regression ('RfR_Total_Costs', df_outcomes, df_experiments, name)
 
     # Get the SALib problem definition need to run te sobol analysis and check the convergence
     problem = get_SALib_problem(dike_model.uncertainties)
@@ -339,11 +306,11 @@ def run_sensitivity_analysis(sobol, regular, name):
     run_sobol (df_outcomes_sobol, 'RfR_Total_Costs', problem, name)
 
     # Check convergence using Sobol analysis for each KPI
-    check_convergence_sobol (df_outcomes_sobol, 'Total_Expected_Number_of_Deaths', problem, name, 'sobol')
-    check_convergence_sobol (df_outcomes_sobol, 'Total_Dike_Investment_Costs', problem, name, 'sobol')
-    check_convergence_sobol (df_outcomes_sobol, 'Total_Expected_Annual_Damage', problem, name, 'sobol')
-    check_convergence_sobol (df_outcomes_sobol, 'Expected_evacuation_costs', problem, name, 'sobol')
-    check_convergence_sobol (df_outcomes_sobol, 'RfR_Total_Costs', problem, name, 'sobol')
+    check_convergence_sobol (df_outcomes_sobol, 'Total_Expected_Number_of_Deaths', problem, name)
+    check_convergence_sobol (df_outcomes_sobol, 'Total_Dike_Investment_Costs', problem, name)
+    check_convergence_sobol (df_outcomes_sobol, 'Total_Expected_Annual_Damage', problem, name)
+    check_convergence_sobol (df_outcomes_sobol, 'Expected_evacuation_costs', problem, name)
+    check_convergence_sobol (df_outcomes_sobol, 'RfR_Total_Costs', problem, name)
 
     # Run Extra Trees analysis
     extra_trees(df_outcomes, experiments, name)
