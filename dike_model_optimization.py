@@ -26,6 +26,7 @@ if __name__ == "__main__":
         "discount rate 0": 3.5,
         "discount rate 1": 3.5,
         "discount rate 2": 3.5,
+        "discount rate 3": 3.5,
         "ID flood wave shape": 4,
     }
     scen1 = {}
@@ -62,3 +63,4 @@ if __name__ == "__main__":
     ax1.set_xlabel("nr. of generations")
     ax1.set_ylabel(r"$\epsilon$ progress")
     sns.despine()
+    plt.plot()
