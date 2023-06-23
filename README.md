@@ -20,7 +20,7 @@ requires only pandas to run and matplotlib to visualise. For this notebook to ru
 
 #### 2. dike_model_optimization.ipynb 
 This notebook is the crux of our analysis, and walks through all the steps of Multi-Scenario MORDM. These steps are 
-outlined in the notebook and the results are analysed seperately in the report. The file requires most of the requirements
+outlined in the notebook and the results are analysed separately in the report. The file requires most of the requirements
 stated in [installation](#installation). As some optimizations and experiments take a long time to run, pickle is used 
 to dump output formats into the `archives` directory. This directory contains the following:
 - `step1_convergences`: stores the list of convergence values of the first optimization
@@ -35,7 +35,7 @@ The sensitivity analysis provided in the code uses several techniques to evaluat
 provided by the dike model. It uses different functions who each represent their own method of analysis to assess the 
 impact of uncertainties on key performance indicators (KPIs), all methods come together in a final function. Each of 
 them provides a certain results each saved in a corresponding directory, either in the form of a text file, csv file or 
-png file. The defined KPI's are expected number of deaths, investment costs of building dikes, invest costs for the room 
+png file. The defined KPIs are expected number of deaths, investment costs of building dikes, invest costs for the room 
 for the river, expected annual damages and evacuation costs
 
 Two other files that are part of the model were used in the sensitivity analysis
